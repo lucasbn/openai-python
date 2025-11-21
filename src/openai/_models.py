@@ -785,7 +785,8 @@ else:
 if not PYDANTIC_V1:
     from pydantic import TypeAdapter as _TypeAdapter
 
-    _CachedTypeAdapter = cast("TypeAdapter[object]", lru_cache(maxsize=None)(_TypeAdapter))
+    # _CachedTypeAdapter = cast("TypeAdapter[object]", lru_cache(maxsize=None)(_TypeAdapter))
+    _CachedTypeAdapter = _TypeAdapter
 
     if TYPE_CHECKING:
         from pydantic import TypeAdapter
